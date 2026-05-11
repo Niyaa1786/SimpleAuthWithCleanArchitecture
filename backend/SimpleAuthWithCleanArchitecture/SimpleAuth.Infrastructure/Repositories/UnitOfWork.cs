@@ -1,4 +1,4 @@
-﻿using SimpleAuth.Application.Interfaces;
+﻿using SimpleAuth.Application.Interfaces.Shared;
 using SimpleAuth.Domain.Interfaces;
 using SimpleAuth.Infrastructure.Data;
 using System;

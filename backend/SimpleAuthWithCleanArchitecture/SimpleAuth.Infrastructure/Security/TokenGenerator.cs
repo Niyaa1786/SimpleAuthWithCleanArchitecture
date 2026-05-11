@@ -2,21 +2,28 @@
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using SimpleAuth.Application.DTOs.Shared;
+using SimpleAuth.Application.Interfaces.Common;
 using SimpleAuth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 
-namespace SimpleAuth.Infrastructure.Helper
+namespace SimpleAuth.Infrastructure.Security
 {
-    public static class JwtHelper
+    public class TokenGenerator : ITokenGenerator
     {
-        public static TokenResult GenerateToken(User user, IConfiguration configuration)
+        private readonly IConfiguration _configuration;
+        public TokenGenerator(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }   
+
+        public TokenResult GenerateToken(User user)
         {
             var accessExpiry = DateTime.UtcNow.AddMinutes(15);
             var RefreshExpiry = DateTime.UtcNow.AddDays(7);
-            var accessToken = GenerateAccessToken(user, configuration, accessExpiry);
+            var accessToken = GenerateAccessToken(user, _configuration, accessExpiry);
             var refreshToken = GenerateRefreshToken();
 
             return new TokenResult

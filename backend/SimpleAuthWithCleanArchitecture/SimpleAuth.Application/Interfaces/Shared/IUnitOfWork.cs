@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.Interfaces
+namespace SimpleAuth.Application.Interfaces.Shared
 {
     public interface IUnitOfWork
     {

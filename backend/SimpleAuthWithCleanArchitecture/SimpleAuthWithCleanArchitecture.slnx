@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="SimpleAuth.Api/SimpleAuth.Api.csproj" />
+  <Project Path="SimpleAuth.Application/SimpleAuth.Application.csproj" />
+  <Project Path="SimpleAuth.Domain/SimpleAuth.Domain.csproj" />
+  <Project Path="SimpleAuth.Infrastructure/SimpleAuth.Infrastructure.csproj" />
 </Solution>
