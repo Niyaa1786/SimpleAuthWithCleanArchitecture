@@ -1,6 +1,7 @@
 ﻿using Riok.Mapperly.Abstractions;
 using SimpleAuth.Application.DTOs.Request;
 using SimpleAuth.Application.DTOs.Response;
+using SimpleAuth.Application.DTOs.Shared;
 using SimpleAuth.Domain.Entities;
 using SimpleAuth.Domain.Enums;
 using System;
@@ -18,11 +19,15 @@ namespace SimpleAuth.Application.Mapper
             {
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
-                Username = user.Username,
-                Email = user.Email,
-                Role = user.Role.ToString(),
                 AccessTokenExpiration = accessExpiry,
-                RefreshTokenExpiration = refreshExpiry
+                RefreshTokenExpiration = refreshExpiry,
+                User = new UserDto
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Email = user.Email,
+                    Role = user.Role
+                }
 
             };
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.DTOs.Response
+namespace SimpleAuth.Application.DTOs.Shared
 {
     public class TokenResult
     {
