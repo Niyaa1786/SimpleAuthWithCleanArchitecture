@@ -1,4 +1,5 @@
-﻿using SimpleAuth.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SimpleAuth.Domain.Entities;
 using SimpleAuth.Domain.Interfaces;
 using SimpleAuth.Infrastructure.Data;
 using System;
@@ -12,49 +13,26 @@ namespace SimpleAuth.Infrastructure.Repositories
         private readonly AppDbContext _context;
         public UserRepository(AppDbContext context) => _context = context;
 
-        public void Add(User user)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<User>> GetAllAsync(CancellationToken ct = default)
+            => await _context.Users.AsNoTracking().ToListAsync(ct);
 
-        public void Delete(User user)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<User?> GetByIdAsync(Guid id, CancellationToken ct = default)
+           => await _context.Users.FirstOrDefaultAsync(u => u.Id == id, ct);
 
-        public Task<IEnumerable<User>> GetAllAsync(CancellationToken ct = default)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<User?> GetByEmailAsync(string email, CancellationToken ct = default)
+            => await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Email == email, ct);
 
-        public Task<User> GetByEmailAsync(string email, CancellationToken ct = default)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<User?> GetByNameAsync(string name, CancellationToken ct = default)
+            => await _context.Users.FirstOrDefaultAsync(u => u.Username == name, ct);
 
-        public Task<User> GetByIdAsync(Guid id, CancellationToken ct = default)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<User?> GetByNameOrEmailAsync(string name, string email, CancellationToken ct = default)
+            => await _context.Users.FirstOrDefaultAsync(u => u.Username == name || u.Email == email, ct);
 
-        public Task<User> GetByNameAsync(string name, CancellationToken ct = default)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<User?> GetByRefreshTokenAsync(string refreshToken, CancellationToken ct = default)
+            => await _context.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken, ct);
 
-        public Task<User> GetByNameOrEmailAsync(string name, string email, CancellationToken ct = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> GetByRefreshTokenAsync(string refreshToken, CancellationToken ct = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(User user)
-        {
-            throw new NotImplementedException();
-        }
+        public void Add(User user) => _context.Users.Add(user);
+        public void Update(User user) => _context.Users.Update(user);
+        public void Delete(User user) => _context.Users.Remove(user);
     }
 }

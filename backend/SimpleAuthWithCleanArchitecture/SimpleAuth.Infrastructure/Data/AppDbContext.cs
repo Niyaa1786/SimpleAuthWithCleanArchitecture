@@ -10,6 +10,8 @@ namespace SimpleAuth.Infrastructure.Data
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(entity =>
