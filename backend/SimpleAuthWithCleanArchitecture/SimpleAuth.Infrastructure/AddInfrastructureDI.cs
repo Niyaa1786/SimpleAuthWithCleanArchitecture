@@ -2,7 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleAuth.Application.Interfaces.Common;
+using SimpleAuth.Application.Interfaces.Shared;
 using SimpleAuth.Infrastructure.Data;
+using SimpleAuth.Infrastructure.Repositories;
 using SimpleAuth.Infrastructure.Security;
 
 
@@ -14,6 +16,8 @@ namespace SimpleAuth.Infrastructure
         {
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<ITokenGenerator,TokenGenerator>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();

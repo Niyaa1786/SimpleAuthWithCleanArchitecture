@@ -13,11 +13,8 @@ namespace SimpleAuth.Infrastructure.Repositories
         private IUserRepository? _userRepository;
         public UnitOfWork(AppDbContext context) => _context = context;
 
-        public IUserRepository Users => _userRepository ?? new UserRepository(_context);
+        public IUserRepository Users => _userRepository ??= new UserRepository(_context);
 
-        public Task<int> SaveChangesAsync(CancellationToken ct = default)
-        {
-             return _context.SaveChangesAsync(ct);
-        }
+        public Task<int> SaveChangesAsync(CancellationToken ct = default) => _context.SaveChangesAsync(ct);
     }
 }
