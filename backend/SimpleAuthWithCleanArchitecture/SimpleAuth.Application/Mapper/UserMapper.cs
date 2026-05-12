@@ -13,14 +13,14 @@ namespace SimpleAuth.Application.Mapper
     [Mapper]
     internal static partial class UserMapper
     {
-        public static AuthResponse ToAuthResponse(User user, string accessToken, string refreshToken, DateTime accessExpiry, DateTime refreshExpiry)
+        public static AuthResponse ToAuthResponse(User user, TokenResult tokenResult)
         {
             return new AuthResponse
             {
-                AccessToken = accessToken,
-                RefreshToken = refreshToken,
-                AccessTokenExpiration = accessExpiry,
-                RefreshTokenExpiration = refreshExpiry,
+                AccessToken = tokenResult.AccessToken,
+                RefreshToken = tokenResult.RefreshToken,
+                AccessTokenExpiration = tokenResult.AccessTokenExpiration,
+                RefreshTokenExpiration = tokenResult.RefreshTokenExpiration,
                 User = new UserDto
                 {
                     Id = user.Id,
@@ -31,9 +31,9 @@ namespace SimpleAuth.Application.Mapper
 
             };
         }
-        public static User ToUserEntity(RegisterRequest request)
+        public static User ToUserEntity(RegisterRequest request, string passwordHash)
         {
-            return new User(request.Username, request.Email, request.Password, UserRole.User);
+            return new User(request.Username, request.Email, passwordHash, UserRole.User);
         }
         public static User ToAdminEntity(RegisterRequest request)
         {
