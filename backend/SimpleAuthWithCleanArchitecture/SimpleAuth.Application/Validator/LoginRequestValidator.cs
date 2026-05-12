@@ -10,9 +10,11 @@ namespace SimpleAuth.Application.Validator
     {
         public LoginRequestValidator()
         {
-            RuleFor(x => x.Username).NotEmpty().WithMessage("Username is required.");
+            RuleFor(x => x.Username).NotEmpty().WithMessage("Username is required.")
+                                    .When(x => !string.IsNullOrEmpty(x.Username));
             RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required.")
-                                 .EmailAddress().WithMessage("Invalid email format.");
+                                 .EmailAddress().WithMessage("Invalid email format.")
+                                 .When(x=> !string.IsNullOrEmpty(x.Email));
             RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required");
         }
     }
