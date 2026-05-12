@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SimpleAuth.Application.Validator
 {
-    internal class RefreshTokenRequestValidator : AbstractValidator<RefreshTokenRequest>
+    public class RefreshTokenRequestValidator : AbstractValidator<RefreshTokenRequest>
     {
         public RefreshTokenRequestValidator()
         {

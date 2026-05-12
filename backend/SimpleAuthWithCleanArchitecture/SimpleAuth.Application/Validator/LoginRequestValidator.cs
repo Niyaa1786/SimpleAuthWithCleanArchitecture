@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SimpleAuth.Application.Validator
 {
-    internal class LoginRequestValidator : AbstractValidator<LoginRequest>
+    public class LoginRequestValidator : AbstractValidator<LoginRequest>
     {
         public LoginRequestValidator()
         {

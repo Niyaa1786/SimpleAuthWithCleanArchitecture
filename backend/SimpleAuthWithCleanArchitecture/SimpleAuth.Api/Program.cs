@@ -1,3 +1,4 @@
+using Scalar.AspNetCore;
 using Serilog;
 using SimpleAuth.Application;
 using SimpleAuth.Infrastructure;
@@ -30,6 +31,7 @@ app.UseSerilogRequestLogging();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
