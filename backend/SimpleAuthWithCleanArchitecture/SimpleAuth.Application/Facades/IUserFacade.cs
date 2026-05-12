@@ -11,6 +11,6 @@ namespace SimpleAuth.Application.Facades
         public Task<AuthResponse> Register(RegisterRequest request, CancellationToken ct = default);
         public Task<AuthResponse> Login(LoginRequest request, CancellationToken ct = default);
         public Task<bool> Logout(Guid id, CancellationToken ct = default);
-        public Task RefreshToken(RefreshTokenRequest request, CancellationToken ct = default);
+        public Task<AuthResponse> RefreshToken(RefreshTokenRequest request, CancellationToken ct = default);
     }
 }

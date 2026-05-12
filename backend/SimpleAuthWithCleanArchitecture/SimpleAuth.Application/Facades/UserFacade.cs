@@ -33,7 +33,7 @@ namespace SimpleAuth.Application.Facades
         public Task<bool> Logout(Guid id, CancellationToken ct = default)
             => _logout.ExecuteAsync(id, ct);
 
-        public Task RefreshToken(RefreshTokenRequest request, CancellationToken ct = default)
+        public Task<AuthResponse> RefreshToken(RefreshTokenRequest request, CancellationToken ct = default)
             => _refreshToken.ExecuteAsync(request, ct);
 
         public Task<AuthResponse> Register(RegisterRequest request, CancellationToken ct = default)

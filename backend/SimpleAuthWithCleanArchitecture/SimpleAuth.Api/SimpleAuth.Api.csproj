@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SimpleAuth.Application\SimpleAuth.Application.csproj" />
     <ProjectReference Include="..\SimpleAuth.Infrastructure\SimpleAuth.Infrastructure.csproj" />
   </ItemGroup>
