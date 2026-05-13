@@ -11,9 +11,12 @@ namespace SimpleAuth.Infrastructure.Persistence.Repositories
     {
         private readonly AppDbContext _context;
         private IUserRepository? _userRepository;
+        private IUserProfileRepository? _userProfileRepository;
+
         public UnitOfWork(AppDbContext context) => _context = context;
 
         public IUserRepository Users => _userRepository ??= new UserRepository(_context);
+        public IUserProfileRepository UserProfiles => _userProfileRepository ??= new UserProfileRepository(_context);
 
         public Task<int> SaveChangesAsync(CancellationToken ct = default) => _context.SaveChangesAsync(ct);
     }
