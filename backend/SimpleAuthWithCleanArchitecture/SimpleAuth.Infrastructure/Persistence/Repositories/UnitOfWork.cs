@@ -1,11 +1,12 @@
 ﻿using SimpleAuth.Application.Interfaces.Shared;
 using SimpleAuth.Domain.Interfaces;
 using SimpleAuth.Infrastructure.Data;
+using SimpleAuth.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Infrastructure.Repositories
+namespace SimpleAuth.Infrastructure.Persistence.Repositories
 {
     internal class UnitOfWork : IUnitOfWork
     {

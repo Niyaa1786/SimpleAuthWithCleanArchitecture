@@ -14,7 +14,7 @@ namespace SimpleAuth.Domain.Interfaces
         Task<User?> GetByNameOrEmailAsync(string name, string email, CancellationToken ct = default);
         Task<User?> GetByRefreshTokenAsync(string refreshToken, CancellationToken ct = default);
 
-        void  Add(User user);
+        void Add(User user);
         void Update(User user);
         void Delete(User user);
 

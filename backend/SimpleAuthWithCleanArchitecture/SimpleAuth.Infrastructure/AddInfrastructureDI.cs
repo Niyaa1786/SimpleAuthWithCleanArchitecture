@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SimpleAuth.Application.Interfaces.Common;
 using SimpleAuth.Application.Interfaces.Shared;
 using SimpleAuth.Infrastructure.Data;
-using SimpleAuth.Infrastructure.Repositories;
+using SimpleAuth.Infrastructure.Persistence.Repositories;
 using SimpleAuth.Infrastructure.Security;
 
 
