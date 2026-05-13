@@ -15,8 +15,8 @@ namespace SimpleAuth.Domain.Entities
         public DateTime CreatedAt { get; private set; }
         public string? RefreshToken { get; private set; }
         public DateTime RefreshTokenExpiry { get; private set; }
-        
-        public UserProfile Profile { get; private set; }
+
+        public UserProfile Profile { get; private set; } = null!;
 
         private User() { }
         
