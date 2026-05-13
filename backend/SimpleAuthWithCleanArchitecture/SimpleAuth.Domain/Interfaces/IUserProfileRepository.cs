@@ -12,8 +12,8 @@ namespace SimpleAuth.Domain.Interfaces
         Task<UserProfile?> GetByUserIdAsync(Guid id, CancellationToken ct = default);
         Task<UserProfile?> GetByPhoneNumber(string phoneNumber, CancellationToken ct = default);
 
-        void Add(User user);
-        void Update(User user);
-        void Delete(User user);
+        void Add(UserProfile user);
+        void Update(UserProfile user);
+        void Delete(UserProfile user);
     }
 }
