@@ -7,15 +7,16 @@ namespace SimpleAuth.Domain.Entities
 { 
     public class User
     {
-        public Guid Id { get;private set;  }
+        public Guid Id { get; private set;  }
         public string Username { get; private set; } = string.Empty;
         public string Email { get; private set; } = string.Empty;
         public string PasswordHash { get; private set; } = string.Empty;
         public UserRole Role { get; private set; }
         public DateTime CreatedAt { get; private set; }
-
         public string? RefreshToken { get; private set; }
         public DateTime RefreshTokenExpiry { get; private set; }
+        
+        public UserProfile Profile { get; private set; }
 
         private User() { }
         
