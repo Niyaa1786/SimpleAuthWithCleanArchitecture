@@ -1,10 +1,10 @@
-﻿using SimpleAuth.Application.DTOs.Request;
-using SimpleAuth.Application.DTOs.Response;
+﻿using SimpleAuth.Application.DTOs.Request.Auth;
+using SimpleAuth.Application.DTOs.Response.Auth;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.Facades
+namespace SimpleAuth.Application.Facades.User
 {
     public interface IUserFacade
     {

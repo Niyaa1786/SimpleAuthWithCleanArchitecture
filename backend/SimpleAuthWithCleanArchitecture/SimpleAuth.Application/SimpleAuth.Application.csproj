@@ -18,4 +18,9 @@
     <ProjectReference Include="..\SimpleAuth.Domain\SimpleAuth.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\Response\UserProfile\" />
+    <Folder Include="Validator\UserProfileValidators\" />
+  </ItemGroup>
+
 </Project>

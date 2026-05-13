@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleAuth.Api.Responses;
-using SimpleAuth.Application.DTOs.Request;
-using SimpleAuth.Application.DTOs.Response;
-using SimpleAuth.Application.Facades;
+using SimpleAuth.Application.DTOs.Request.Auth;
+using SimpleAuth.Application.DTOs.Response.Auth;
+using SimpleAuth.Application.Facades.User;
 
 namespace SimpleAuth.Api.Controllers
 {

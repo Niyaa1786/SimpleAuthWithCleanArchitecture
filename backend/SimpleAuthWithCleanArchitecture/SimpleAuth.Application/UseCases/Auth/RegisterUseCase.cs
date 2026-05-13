@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
-using SimpleAuth.Application.DTOs.Request;
-using SimpleAuth.Application.DTOs.Response;
+using SimpleAuth.Application.DTOs.Request.Auth;
+using SimpleAuth.Application.DTOs.Response.Auth;
 using SimpleAuth.Application.Interfaces.Common;
 using SimpleAuth.Application.Interfaces.Shared;
 using SimpleAuth.Domain.Entities;
@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.UseCases
+namespace SimpleAuth.Application.UseCases.Auth
 {
     internal class RegisterUseCase
     {

@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
-using SimpleAuth.Application.DTOs.Request;
+using SimpleAuth.Application.DTOs.Request.Auth;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.Validator
+namespace SimpleAuth.Application.Validator.AuthValidators
 {
     public class RefreshTokenRequestValidator : AbstractValidator<RefreshTokenRequest>
     {

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.UseCases
+namespace SimpleAuth.Application.UseCases.Auth
 {
     internal class LogoutUseCase
     {

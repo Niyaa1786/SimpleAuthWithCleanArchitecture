@@ -1,6 +1,6 @@
 ﻿using Riok.Mapperly.Abstractions;
-using SimpleAuth.Application.DTOs.Request;
-using SimpleAuth.Application.DTOs.Response;
+using SimpleAuth.Application.DTOs.Request.Auth;
+using SimpleAuth.Application.DTOs.Response.Auth;
 using SimpleAuth.Application.DTOs.Shared;
 using SimpleAuth.Domain.Entities;
 using SimpleAuth.Domain.Enums;

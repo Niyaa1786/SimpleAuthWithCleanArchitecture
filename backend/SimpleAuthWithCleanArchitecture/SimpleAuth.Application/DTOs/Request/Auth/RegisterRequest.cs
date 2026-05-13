@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Application.DTOs.Request
+namespace SimpleAuth.Application.DTOs.Request.Auth
 {
     public class RegisterRequest
     {
