@@ -38,12 +38,12 @@ namespace SimpleAuth.Application.UseCases.Auth
             }
 
             var passwordHash = _passwordHasher.Hash(request.Password);
-            var newUser = Mapper.UserMapper.ToUserEntity(request,passwordHash);
+            var newUser = Mapper.AuthMapper.ToUserEntity(request,passwordHash);
 
             _unitOfWork.Users.Add(newUser);
             await _unitOfWork.SaveChangesAsync(ct);
 
-            return Mapper.UserMapper.ToAuthResponse(newUser,null!);
+            return Mapper.AuthMapper.ToAuthResponse(newUser,null!);
         }
     }
 }

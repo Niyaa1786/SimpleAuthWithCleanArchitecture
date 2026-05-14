@@ -42,7 +42,7 @@ namespace SimpleAuth.Application.UseCases.Auth
             user.SetRefreshToken(tokenResult.RefreshToken, tokenResult.RefreshTokenExpiration);
             await _unitOfWork.SaveChangesAsync(ct);
 
-            return Mapper.UserMapper.ToAuthResponse(user, tokenResult);
+            return Mapper.AuthMapper.ToAuthResponse(user, tokenResult);
         }
     }
 }
