@@ -37,13 +37,11 @@ namespace SimpleAuth.Domain.Entities
             CreatedAt = DateTime.UtcNow;
         }
 
-        public void UpdateProfile(string firstName, string lastName, string phoneNumber, Gender gender, string avatarUrl, string avatarPublicId)
+        public void UpdateProfile(string firstName, string lastName, string phoneNumber, Gender gender)
         {
             FirstName = firstName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
-            AvatarUrl = avatarUrl;
-            AvatarPublicId = avatarPublicId;
             Gender = gender;
             UpdateAt = DateTime.UtcNow;
         }
