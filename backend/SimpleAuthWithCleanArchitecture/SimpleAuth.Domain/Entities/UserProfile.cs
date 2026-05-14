@@ -1,6 +1,7 @@
 ﻿using SimpleAuth.Domain.Enums;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -14,6 +15,7 @@ namespace SimpleAuth.Domain.Entities
         public string LastName { get; private set; } = string.Empty;
         public string PhoneNumber { get; private set; } = string.Empty ;
         public string AvatarUrl { get; private set; } = string.Empty;
+        public string AvatarPublicId { get; private set; } = string.Empty;
         public Gender Gender { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdateAt { get; private set; }
@@ -21,21 +23,42 @@ namespace SimpleAuth.Domain.Entities
         public User User { get; private set; } = null!;
 
         private UserProfile() { }
-        
-        public UserProfile(Guid userId)
+
+        public UserProfile(Guid userId, string firstName = null!, string lastName = null!, string phoneNumber = null!, Gender gender = Gender.Unknown, string avatarUrl = null!, string avatarPublicId = null!)
         {
             Id = Guid.NewGuid();
             UserId = userId;
+            FirstName = firstName;
+            LastName = lastName;
+            PhoneNumber = phoneNumber;
+            AvatarUrl = avatarUrl;
+            AvatarPublicId = avatarPublicId;
+            Gender = gender;
             CreatedAt = DateTime.UtcNow;
         }
 
-        public void UpdateProfile(string firstName, string lastName, string phoneNumber, string avatarUrl, Gender gender)
+        public void UpdateProfile(string firstName, string lastName, string phoneNumber, Gender gender, string avatarUrl, string avatarPublicId)
         {
             FirstName = firstName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
             AvatarUrl = avatarUrl;
+            AvatarPublicId = avatarPublicId;
             Gender = gender;
+            UpdateAt = DateTime.UtcNow;
+        }
+
+        public void SetAvatar(string avatarUrl, string avatarPublicId)
+        {
+            AvatarUrl = avatarUrl;
+            AvatarPublicId = avatarPublicId;
+            UpdateAt = DateTime.UtcNow;
+        }
+
+        public void RemoveAvatar()
+        {
+            AvatarUrl = null!;
+            AvatarPublicId = null!;
             UpdateAt = DateTime.UtcNow;
         }
     }
