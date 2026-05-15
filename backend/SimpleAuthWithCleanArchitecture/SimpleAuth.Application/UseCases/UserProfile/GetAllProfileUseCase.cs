@@ -17,7 +17,7 @@ namespace SimpleAuth.Application.UseCases.UserProfile
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<UserProfileResponse>> ExecuteAsync(Guid userId, CancellationToken ct = default)
+        public async Task<IEnumerable<UserProfileResponse>> ExecuteAsync(CancellationToken ct = default)
         {
             var profile = await _unitOfWork.UserProfiles.GetAllAsync(ct);
             return profile.Select(p => Mapper.UserProfileMapper.ToResponse(p));
