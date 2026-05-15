@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleAuth.Api.Responses;
 using SimpleAuth.Application.DTOs.Request.UserProfile;
@@ -10,15 +11,17 @@ namespace SimpleAuth.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserProfilesConotroller : ControllerBase
+    [Authorize]
+    public class UserProfilesController : ControllerBase
     {
         private readonly IUserProfileFacade _userProfileFacade;
-        public UserProfilesConotroller(IUserProfileFacade userProfileFacade)
+        public UserProfilesController(IUserProfileFacade userProfileFacade)
         {
             _userProfileFacade = userProfileFacade;
         }
 
         [HttpGet("GetAll")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll(CancellationToken ct)
         {
             var result = await _userProfileFacade.GetAll(ct);
