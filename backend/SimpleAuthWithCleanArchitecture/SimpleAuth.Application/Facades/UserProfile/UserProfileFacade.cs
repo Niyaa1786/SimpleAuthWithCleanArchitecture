@@ -5,7 +5,7 @@ using SimpleAuth.Application.UseCases.UserProfile;
 
 namespace SimpleAuth.Application.Facades.UserProfile
 {
-    internal class UserProfileFacade
+    internal class UserProfileFacade : IUserProfileFacade
     {
         private readonly GetAllProfileUseCase _getAll;
         private readonly GetProfileUseCase _getProfile;
