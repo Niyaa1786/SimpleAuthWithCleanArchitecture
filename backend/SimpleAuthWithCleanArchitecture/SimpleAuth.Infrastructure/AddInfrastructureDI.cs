@@ -6,6 +6,7 @@ using SimpleAuth.Application.Interfaces.Shared;
 using SimpleAuth.Infrastructure.Data;
 using SimpleAuth.Infrastructure.Persistence.Repositories;
 using SimpleAuth.Infrastructure.Security;
+using SimpleAuth.Infrastructure.Services;
 
 
 namespace SimpleAuth.Infrastructure
@@ -21,6 +22,8 @@ namespace SimpleAuth.Infrastructure
 
             services.AddScoped<ITokenGenerator,TokenGenerator>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
+
+            services.AddScoped<ICloudinaryService, CloudinaryService>();
 
             return services;
         }
