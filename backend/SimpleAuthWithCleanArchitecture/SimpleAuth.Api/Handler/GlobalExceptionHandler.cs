@@ -8,6 +8,12 @@ namespace SimpleAuth.Api.Handler
 {
     public class GlobalExceptionHandler : IExceptionHandler
     {
+        private readonly ILogger<GlobalExceptionHandler> _logger;
+        public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+        {
+            _logger = logger;
+        }
+
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
             int statusCode = (int)HttpStatusCode.InternalServerError;
@@ -31,6 +37,13 @@ namespace SimpleAuth.Api.Handler
             {
                 statusCode = (int)HttpStatusCode.Unauthorized;
                 message = "Unauthorized access. Please log in to continue";
+            }
+            else
+            {
+                _logger.LogError(exception, "Unhandled exception occurred at {Path} | Method: {Method} | Message: {ErrorMessage}",
+                    httpContext.Request.Path,
+                    httpContext.Request.Method,
+                    exception.Message);
             }
 
             var response = ApiResponse<object>.Failure(errors!, message);
