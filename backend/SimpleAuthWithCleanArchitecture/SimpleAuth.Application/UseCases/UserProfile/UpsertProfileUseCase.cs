@@ -26,7 +26,7 @@ namespace SimpleAuth.Application.UseCases.UserProfile
         {
             _validator.ValidateAndThrow(request);
 
-            var existing = await _unitOfWork.UserProfiles.GetByIdAsync(request.UserId, ct);
+            var existing = await _unitOfWork.UserProfiles.GetByUserIdAsync(request.UserId, ct);
             if (existing is null)
             {
                 var newProfile = Mapper.UserProfileMapper.ToEntity(request);
