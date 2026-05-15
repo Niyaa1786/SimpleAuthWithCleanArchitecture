@@ -14,11 +14,18 @@ namespace SimpleAuth.Application.Mapper
         {
             return new UserProfileResponse
             {
+                UserId = userProfile.UserId,
                 FirstName = userProfile.FirstName,
                 LastName = userProfile.LastName,
                 PhoneNumber = userProfile.PhoneNumber,
-                Gender = userProfile.Gender
+                AvatarUrl = userProfile.AvatarUrl,
+                Gender = userProfile.Gender,
             };
+        }
+
+        public static UserProfile ToEntity(UpsertProfileRequest request)
+        {
+            return new UserProfile(request.UserId, request.FirstName, request.LastName, request.PhoneNumber, (Gender)Enum.Parse(typeof(Gender), request.Gender));
         }
 
         public static void ApplyUpdate(UserProfile userProfile, UpsertProfileRequest request)

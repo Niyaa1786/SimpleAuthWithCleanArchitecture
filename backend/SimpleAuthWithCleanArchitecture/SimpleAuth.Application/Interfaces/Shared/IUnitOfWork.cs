@@ -8,6 +8,7 @@ namespace SimpleAuth.Application.Interfaces.Shared
     public interface IUnitOfWork
     {
         public IUserRepository Users { get; }
+        public IUserProfileRepository UserProfiles { get; }
 
         public Task<int> SaveChangesAsync(CancellationToken ct = default);
     }

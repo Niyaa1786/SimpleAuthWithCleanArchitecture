@@ -11,6 +11,7 @@ namespace SimpleAuth.Application.Validator.UserProfileValidators
         private const long MaxFileSize = 5 * 1024 * 1024;
         public UploadAvatarRequestValidator()
         {
+            RuleFor(x => x.UserId).NotEmpty().WithMessage("User ID is required");
             RuleFor(x => x.FileStream)
                 .NotNull().WithMessage("Stream data must not be empty")
                 .Must(s => s.CanRead).WithMessage("Cannot read stream")
