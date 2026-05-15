@@ -25,12 +25,12 @@ namespace SimpleAuth.Application.Mapper
 
         public static UserProfile ToEntity(UpsertProfileRequest request)
         {
-            return new UserProfile(request.UserId, request.FirstName, request.LastName, request.PhoneNumber, (Gender)Enum.Parse(typeof(Gender), request.Gender));
+            return new UserProfile(request.UserId, request.FirstName, request.LastName, request.PhoneNumber, request.Gender);
         }
 
         public static void ApplyUpdate(UserProfile userProfile, UpsertProfileRequest request)
         {
-            userProfile.UpdateProfile(request.FirstName, request.LastName, request.PhoneNumber, (Gender)Enum.Parse(typeof(Gender), request.Gender));
+            userProfile.UpdateProfile(request.FirstName, request.LastName, request.PhoneNumber, request.Gender);
         }
     }
 }
