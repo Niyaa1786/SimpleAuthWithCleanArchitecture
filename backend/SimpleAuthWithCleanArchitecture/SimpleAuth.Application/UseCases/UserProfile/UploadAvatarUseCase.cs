@@ -29,7 +29,7 @@ namespace SimpleAuth.Application.UseCases.UserProfile
         {
             _validator.ValidateAndThrow(request);
 
-            var userProfile = await _unitOfWork.UserProfiles.GetByIdAsync(request.UserId, ct);
+            var userProfile = await _unitOfWork.UserProfiles.GetByUserIdAsync(request.UserId, ct);
             if (userProfile is null)
                 throw new ValidationException(new[] { new ValidationFailure("UserId", "Profile not found")});
 
