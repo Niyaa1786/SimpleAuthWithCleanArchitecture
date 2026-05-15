@@ -33,6 +33,15 @@ namespace SimpleAuth.Application.UseCases.UserProfile
             if (userProfile is null)
                 throw new ValidationException(new[] { new ValidationFailure("UserId", "Profile not found")});
 
+            if (!string.IsNullOrEmpty(userProfile.AvatarPublicId))
+            {
+                var deleted = await _cloudinaryService.DeleteAsync(userProfile.AvatarPublicId, ct);
+                if (!deleted)
+                {
+                    throw new Exception("Failed to delete avatar from Cloudinary");
+                }
+            }
+
             var uploadResult = await _cloudinaryService.UploadAsync(request.FileStream, request.FileName, request.ContentType, ct: ct);
             userProfile.SetAvatar(uploadResult.Url!, uploadResult.PublicId!);
             await _unitOfWork.SaveChangesAsync(ct);
