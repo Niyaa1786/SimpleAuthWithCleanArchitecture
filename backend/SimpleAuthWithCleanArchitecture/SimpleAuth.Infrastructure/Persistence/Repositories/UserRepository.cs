@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimpleAuth.Domain.Entities;
 using SimpleAuth.Domain.Interfaces;
-using SimpleAuth.Infrastructure.Data;
+using SimpleAuth.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Text;

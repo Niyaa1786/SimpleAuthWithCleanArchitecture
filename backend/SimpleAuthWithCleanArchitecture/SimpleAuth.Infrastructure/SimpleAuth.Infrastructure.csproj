@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Caching\" />
+    <Folder Include="Persistence\Migrations\" />
   </ItemGroup>
 
 </Project>

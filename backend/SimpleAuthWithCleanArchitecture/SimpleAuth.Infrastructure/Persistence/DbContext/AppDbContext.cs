@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleAuth.Infrastructure.Data
+namespace SimpleAuth.Infrastructure.Persistence
 {
-    internal class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
