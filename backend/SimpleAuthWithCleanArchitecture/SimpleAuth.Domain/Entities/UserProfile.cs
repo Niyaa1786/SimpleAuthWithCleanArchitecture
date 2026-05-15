@@ -14,8 +14,8 @@ namespace SimpleAuth.Domain.Entities
         public string FirstName { get; private set; } = string.Empty;
         public string LastName { get; private set; } = string.Empty;
         public string PhoneNumber { get; private set; } = string.Empty ;
-        public string AvatarUrl { get; private set; } = string.Empty;
-        public string AvatarPublicId { get; private set; } = string.Empty;
+        public string? AvatarUrl { get; private set; } = string.Empty;
+        public string? AvatarPublicId { get; private set; } = string.Empty;
         public Gender Gender { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdateAt { get; private set; }
