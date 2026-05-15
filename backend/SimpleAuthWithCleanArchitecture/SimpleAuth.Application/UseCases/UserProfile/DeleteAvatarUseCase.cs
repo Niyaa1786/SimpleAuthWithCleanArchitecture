@@ -14,10 +14,12 @@ namespace SimpleAuth.Application.UseCases.UserProfile
     internal class DeleteAvatarUseCase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ICloudinaryService _cloudinaryService;
 
-        public DeleteAvatarUseCase(IUnitOfWork unitOfWork)
+        public DeleteAvatarUseCase(IUnitOfWork unitOfWork, ICloudinaryService cloudinaryService)
         {
             _unitOfWork = unitOfWork;
+            _cloudinaryService = cloudinaryService;
         }
 
         public async Task<bool> ExecuteAsync(Guid id, CancellationToken ct = default)
@@ -26,6 +28,10 @@ namespace SimpleAuth.Application.UseCases.UserProfile
             if (userProfile is null)
                 throw new ValidationException(new[] { new ValidationFailure("UserId", "Profile not found") });
 
+            if (!string.IsNullOrEmpty(userProfile.AvatarPublicId))
+            {
+                await _cloudinaryService.DeleteAsync(userProfile.AvatarPublicId, ct);
+            }
             userProfile.RemoveAvatar();
             await _unitOfWork.SaveChangesAsync(ct);
 
