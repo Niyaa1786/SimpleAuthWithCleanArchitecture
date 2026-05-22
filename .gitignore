@@ -402,3 +402,6 @@ FodyWeavers.xsd
 
 # Ignore local configuration files
 backend/**/appsettings.json
+
+auto-imports.d.ts
+components.d.ts
